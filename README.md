@@ -20,3 +20,5 @@
    ```bash
    python -m unittest python_threading_basic/tests/test_news_crawler.py
    ```
+
+Link video demo : https://drive.google.com/drive/folders/1MGxKOlkgCGM6Jx-RGRi8xIdZL265H3Uk?usp=sharing

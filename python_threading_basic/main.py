@@ -3,8 +3,29 @@ BÀI TẬP LỚN PYTHON: ỨNG DỤNG THU THẬP VÀ QUẢN LÝ TIN TỨC ĐA NG
 Điểm khởi đầu chính của chương trình (Entry Point).
 """
 import sys
-from database.db_connection import DatabaseConnection
-from ui.console_ui import ConsoleUI
+import os
+
+# Tự động phát hiện và chuyển sang môi trường ảo .venv nếu đang dùng Python toàn cục
+venv_python = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".venv", "Scripts", "python.exe")
+if os.path.exists(venv_python) and os.path.normcase(os.path.abspath(sys.executable)) != os.path.normcase(os.path.abspath(venv_python)):
+    import subprocess
+    try:
+        proc = subprocess.run([venv_python, os.path.abspath(__file__)] + sys.argv[1:])
+        sys.exit(proc.returncode)
+    except Exception:
+        pass
+
+try:
+    from database.db_connection import DatabaseConnection
+    from ui.console_ui import ConsoleUI
+except ModuleNotFoundError as err:
+    print(f"\n[!] Lỗi thiếu thư viện: {err}")
+    print("Vui lòng kích hoạt virtual environment trước khi chạy:")
+    print(r"    .\.venv\Scripts\activate")
+    print("    python main.py")
+    print("Hoặc cài đặt thư viện vào Python hiện tại:")
+    print(r"    pip install -r requirements.txt")
+    sys.exit(1)
 
 def main():
     # Cấu hình UTF-8 cho Terminal Windows

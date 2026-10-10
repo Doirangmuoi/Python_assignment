@@ -62,8 +62,8 @@ class ConsoleUI:
             print("1. Quản lý nguồn tin (Source Management)")
             print("2. Quản lý tin tức (News Article Management)")
             print("3. Chạy Crawler (Crawl Data)")
-            print("4. Tự động hóa Crawler định kỳ (Scheduler) [+0.5đ]")
-            print("5. Xuất báo cáo dữ liệu (CSV / Excel / JSON) [+0.5đ]")
+            print("4. Tự động hóa Crawler định kỳ (Scheduler)")
+            print("5. Xuất báo cáo dữ liệu (CSV / Excel / JSON)")
             print("0. Thoát chương trình")
             print("-" * 70)
             
